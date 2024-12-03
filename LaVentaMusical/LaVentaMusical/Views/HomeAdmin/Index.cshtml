@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inicio Administrador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .menu {
+            margin: 20px 0;
+        }
+
+            .menu a {
+                display: block;
+                margin: 10px 0;
+                padding: 10px 15px;
+                background-color: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+                .menu a:hover {
+                    background-color: #0056b3;
+                }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido, Administrador</h1>
+    <div class="menu">
+        <a href="@Url.Action("Index", "GenerosMusicales")">Módulo de géneros musicales</a>
+        <a href="@Url.Action("Index", "Artistas")">Módulo de artistas</a>
+        <a href="@Url.Action("Index", "Albumes")">Módulo de álbumes</a>
+        <a href="@Url.Action("Index", "Canciones")">Módulo de canciones</a>
+        <a href="@Url.Action("Index", "VentasCanciones")">Módulo de venta de canciones</a>
+        <a href="@Url.Action("Index", "HistorialCompras")">Módulo de Historial de Compras</a>
+        <a href="@Url.Action("Actualizar", "Usuarios")">Módulo de actualización de datos personales</a>
+        <a href="@Url.Action("Login", "Acceso")">Cerrar sesión</a>
+    </div>
+</body>
+</html>

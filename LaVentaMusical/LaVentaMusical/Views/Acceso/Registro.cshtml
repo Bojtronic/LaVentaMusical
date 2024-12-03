@@ -1,0 +1,199 @@
+﻿@model LaVentaMusical.Models.Usuarios
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registro</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            margin-top: 250px;
+        }
+
+            .register-container h4 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+                font-size: 28px;
+                font-weight: 600;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+                color: #555;
+                font-size: 14px;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 16px;
+                transition: border-color 0.3s ease;
+            }
+
+                .form-group input:focus {
+                    border-color: #007bff;
+                    outline: none;
+                }
+
+            .form-group .text-danger {
+                color: red;
+                font-size: 14px;
+                margin-top: 5px;
+            }
+
+        .register-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+            .register-container button:hover {
+                background-color: #0056b3;
+            }
+
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+            .login-link a {
+                color: #007bff;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                .login-link a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="register-container">
+            <h4>Registro de Usuarios</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.Label("ID de Usuario", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Id_Usuario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Id_Usuario, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Identificación", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Identificacion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Nombre de Usuario", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Nombre_Usuario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre_Usuario, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Apellidos", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Apellidos, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Género", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.Genero,
+                    new SelectList(new[]
+                    {
+                        new { Value = "Masculino", Text = "Masculino" },
+                        new { Value = "Femenino", Text = "Femenino" },
+                        new { Value = "No especificado", Text = "No especificado" }
+                    }, "Value", "Text"), "Seleccione un género", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Genero, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Correo Electrónico", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Tipo de Tarjeta", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.TipoTarjeta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TipoTarjeta, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Número de Tarjeta", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.NumeroTarjeta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumeroTarjeta, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Contraseña", htmlAttributes: new { @class = "control-label" })
+                @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Perfil", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.Perfil,
+                    new SelectList(new[]
+                    {
+                        new { Value = "Admin", Text = "Admin" },
+                        new { Value = "Usuario", Text = "Usuario" }
+                    }, "Value", "Text"), "Seleccione un perfil", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Perfil, "", new { @class = "text-danger" })
+            </div>
+
+            <button type="submit">Registrar</button>
+            <div class="login-link">
+                ¿Ya tienes una cuenta? <a href="@Url.Action("Login", "Acceso")">Inicia sesión</a>
+            </div>
+        </div>
+    }
+</body>
+
+</html>

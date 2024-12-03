@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LaVentaMusicalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Albumes">
+    <Key>
+      <PropertyRef Name="Id_Album" />
+    </Key>
+    <Property Name="Id_Album" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Artista" Type="Int32" Nullable="false" />
+    <Property Name="Nombre_Album" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ano_Lanzamiento" Type="Int32" />
+    <Property Name="Imagen_Album" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Artistas" Relationship="Self.FK__Albumes__Id_Arti__412EB0B6" FromRole="Albumes" ToRole="Artistas" />
+    <NavigationProperty Name="Canciones" Relationship="Self.FK__Canciones__Id_Al__44FF419A" FromRole="Albumes" ToRole="Canciones" />
+  </EntityType>
+  <EntityType Name="Artistas">
+    <Key>
+      <PropertyRef Name="Id_Artista" />
+    </Key>
+    <Property Name="Id_Artista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Artistico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Nacimiento" Type="DateTime" Precision="0" />
+    <Property Name="Nombre_Real" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Nacionalidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen_Artista" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Albumes" Relationship="Self.FK__Albumes__Id_Arti__412EB0B6" FromRole="Artistas" ToRole="Albumes" />
+  </EntityType>
+  <EntityType Name="Canciones">
+    <Key>
+      <PropertyRef Name="Id_Cancion" />
+    </Key>
+    <Property Name="Id_Cancion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Genero" Type="Int32" Nullable="false" />
+    <Property Name="Id_Album" Type="Int32" Nullable="false" />
+    <Property Name="Nombre_Cancion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Video_URL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Canciones_Disponibles" Type="Int32" />
+    <NavigationProperty Name="Albumes" Relationship="Self.FK__Canciones__Id_Al__44FF419A" FromRole="Canciones" ToRole="Albumes" />
+    <NavigationProperty Name="Generos" Relationship="Self.FK__Canciones__Id_Ge__440B1D61" FromRole="Canciones" ToRole="Generos" />
+    <NavigationProperty Name="DetalleFactura" Relationship="Self.FK__DetalleFa__Id_Ca__4E88ABD4" FromRole="Canciones" ToRole="DetalleFactura" />
+    <NavigationProperty Name="Facturas" Relationship="Self.CancionesFacturadas" FromRole="Canciones" ToRole="Facturas" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.Carritos" FromRole="Canciones" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="DetalleFactura">
+    <Key>
+      <PropertyRef Name="DetalleId" />
+    </Key>
+    <Property Name="DetalleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Factura" Type="Int32" Nullable="false" />
+    <Property Name="Id_Cancion" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="PrecioUnitario" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Subtotal" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Canciones" Relationship="Self.FK__DetalleFa__Id_Ca__4E88ABD4" FromRole="DetalleFactura" ToRole="Canciones" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK__DetalleFa__Id_Fa__4D94879B" FromRole="DetalleFactura" ToRole="Facturas" />
+  </EntityType>
+  <EntityType Name="Facturas">
+    <Key>
+      <PropertyRef Name="Id_Factura" />
+    </Key>
+    <Property Name="Id_Factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="FechaCompra" Type="DateTime" Precision="3" />
+    <Property Name="NumeroFactura" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SubTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="IVA" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="DetalleFactura" Relationship="Self.FK__DetalleFa__Id_Fa__4D94879B" FromRole="Facturas" ToRole="DetalleFactura" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Facturas__Id_Usu__49C3F6B7" FromRole="Facturas" ToRole="Usuarios" />
+    <NavigationProperty Name="Pagos" Relationship="Self.FK__Pagos__Id_Factur__5165187F" FromRole="Facturas" ToRole="Pagos" />
+    <NavigationProperty Name="Canciones" Relationship="Self.CancionesFacturadas" FromRole="Facturas" ToRole="Canciones" />
+  </EntityType>
+  <EntityType Name="Generos">
+    <Key>
+      <PropertyRef Name="Id_Genero" />
+    </Key>
+    <Property Name="Id_Genero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Canciones" Relationship="Self.FK__Canciones__Id_Ge__440B1D61" FromRole="Generos" ToRole="Canciones" />
+  </EntityType>
+  <EntityType Name="Pagos">
+    <Key>
+      <PropertyRef Name="PagoId" />
+    </Key>
+    <Property Name="PagoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Factura" Type="Int32" Nullable="false" />
+    <Property Name="MetodoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MontoPagado" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="FechaPago" Type="DateTime" Precision="3" />
+    <Property Name="CodigoAutorizacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK__Pagos__Id_Factur__5165187F" FromRole="Pagos" ToRole="Facturas" />
+  </EntityType>
+  <EntityType Name="Tarjetas">
+    <Key>
+      <PropertyRef Name="Id_Tarjeta" />
+    </Key>
+    <Property Name="Id_Tarjeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Id_Tipo" Type="Int32" Nullable="false" />
+    <Property Name="Numero_Tarjeta" Type="String" MaxLength="19" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Expiracion" Type="DateTime" Precision="0" />
+    <Property Name="CVC" Type="Int32" />
+    <NavigationProperty Name="Tipo_Tarjeta" Relationship="Self.FK__Tarjetas__Id_Tip__5FB337D6" FromRole="Tarjetas" ToRole="Tipo_Tarjeta" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Tarjetas__Id_Usu__5CD6CB2B" FromRole="Tarjetas" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Tipo_Tarjeta">
+    <Key>
+      <PropertyRef Name="Id_Tipo" />
+    </Key>
+    <Property Name="Id_Tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripción_Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Tarjetas" Relationship="Self.FK__Tarjetas__Id_Tip__5FB337D6" FromRole="Tipo_Tarjeta" ToRole="Tarjetas" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id_Usuario" />
+    </Key>
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Identificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Genero" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoTarjeta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroTarjeta" Type="String" MaxLength="19" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Perfil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK__Facturas__Id_Usu__49C3F6B7" FromRole="Usuarios" ToRole="Facturas" />
+    <NavigationProperty Name="Tarjetas" Relationship="Self.FK__Tarjetas__Id_Usu__5CD6CB2B" FromRole="Usuarios" ToRole="Tarjetas" />
+    <NavigationProperty Name="Canciones" Relationship="Self.Carritos" FromRole="Usuarios" ToRole="Canciones" />
+  </EntityType>
+  <Association Name="FK__Albumes__Id_Arti__412EB0B6">
+    <End Role="Artistas" Type="Self.Artistas" Multiplicity="1" />
+    <End Role="Albumes" Type="Self.Albumes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artistas">
+        <PropertyRef Name="Id_Artista" />
+      </Principal>
+      <Dependent Role="Albumes">
+        <PropertyRef Name="Id_Artista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Canciones__Id_Al__44FF419A">
+    <End Role="Albumes" Type="Self.Albumes" Multiplicity="1" />
+    <End Role="Canciones" Type="Self.Canciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albumes">
+        <PropertyRef Name="Id_Album" />
+      </Principal>
+      <Dependent Role="Canciones">
+        <PropertyRef Name="Id_Album" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Canciones__Id_Ge__440B1D61">
+    <End Role="Generos" Type="Self.Generos" Multiplicity="1" />
+    <End Role="Canciones" Type="Self.Canciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Generos">
+        <PropertyRef Name="Id_Genero" />
+      </Principal>
+      <Dependent Role="Canciones">
+        <PropertyRef Name="Id_Genero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetalleFa__Id_Ca__4E88ABD4">
+    <End Role="Canciones" Type="Self.Canciones" Multiplicity="1" />
+    <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canciones">
+        <PropertyRef Name="Id_Cancion" />
+      </Principal>
+      <Dependent Role="DetalleFactura">
+        <PropertyRef Name="Id_Cancion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetalleFa__Id_Fa__4D94879B">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="Id_Factura" />
+      </Principal>
+      <Dependent Role="DetalleFactura">
+        <PropertyRef Name="Id_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas__Id_Usu__49C3F6B7">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Facturas">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pagos__Id_Factur__5165187F">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="Id_Factura" />
+      </Principal>
+      <Dependent Role="Pagos">
+        <PropertyRef Name="Id_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tarjetas__Id_Tip__5FB337D6">
+    <End Role="Tipo_Tarjeta" Type="Self.Tipo_Tarjeta" Multiplicity="1" />
+    <End Role="Tarjetas" Type="Self.Tarjetas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Tarjeta">
+        <PropertyRef Name="Id_Tipo" />
+      </Principal>
+      <Dependent Role="Tarjetas">
+        <PropertyRef Name="Id_Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tarjetas__Id_Usu__5CD6CB2B">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Tarjetas" Type="Self.Tarjetas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Tarjetas">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CancionesFacturadas">
+    <End Role="Canciones" Type="Self.Canciones" Multiplicity="*" />
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+  </Association>
+  <Association Name="Carritos">
+    <End Role="Canciones" Type="Self.Canciones" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="LaVentaMusicalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Albumes" EntityType="Self.Albumes" />
+    <EntitySet Name="Artistas" EntityType="Self.Artistas" />
+    <EntitySet Name="Canciones" EntityType="Self.Canciones" />
+    <EntitySet Name="DetalleFactura" EntityType="Self.DetalleFactura" />
+    <EntitySet Name="Facturas" EntityType="Self.Facturas" />
+    <EntitySet Name="Generos" EntityType="Self.Generos" />
+    <EntitySet Name="Pagos" EntityType="Self.Pagos" />
+    <EntitySet Name="Tarjetas" EntityType="Self.Tarjetas" />
+    <EntitySet Name="Tipo_Tarjeta" EntityType="Self.Tipo_Tarjeta" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK__Albumes__Id_Arti__412EB0B6" Association="Self.FK__Albumes__Id_Arti__412EB0B6">
+      <End Role="Artistas" EntitySet="Artistas" />
+      <End Role="Albumes" EntitySet="Albumes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Canciones__Id_Al__44FF419A" Association="Self.FK__Canciones__Id_Al__44FF419A">
+      <End Role="Albumes" EntitySet="Albumes" />
+      <End Role="Canciones" EntitySet="Canciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Canciones__Id_Ge__440B1D61" Association="Self.FK__Canciones__Id_Ge__440B1D61">
+      <End Role="Generos" EntitySet="Generos" />
+      <End Role="Canciones" EntitySet="Canciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetalleFa__Id_Ca__4E88ABD4" Association="Self.FK__DetalleFa__Id_Ca__4E88ABD4">
+      <End Role="Canciones" EntitySet="Canciones" />
+      <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetalleFa__Id_Fa__4D94879B" Association="Self.FK__DetalleFa__Id_Fa__4D94879B">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas__Id_Usu__49C3F6B7" Association="Self.FK__Facturas__Id_Usu__49C3F6B7">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Facturas" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pagos__Id_Factur__5165187F" Association="Self.FK__Pagos__Id_Factur__5165187F">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tarjetas__Id_Tip__5FB337D6" Association="Self.FK__Tarjetas__Id_Tip__5FB337D6">
+      <End Role="Tipo_Tarjeta" EntitySet="Tipo_Tarjeta" />
+      <End Role="Tarjetas" EntitySet="Tarjetas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tarjetas__Id_Usu__5CD6CB2B" Association="Self.FK__Tarjetas__Id_Usu__5CD6CB2B">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Tarjetas" EntitySet="Tarjetas" />
+    </AssociationSet>
+    <AssociationSet Name="CancionesFacturadas" Association="Self.CancionesFacturadas">
+      <End Role="Canciones" EntitySet="Canciones" />
+      <End Role="Facturas" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="Carritos" Association="Self.Carritos">
+      <End Role="Canciones" EntitySet="Canciones" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

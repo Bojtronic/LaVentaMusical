@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaVentaMusicalModelStoreContainer" CdmEntityContainer="LaVentaMusicalEntities">
+    <EntitySetMapping Name="Albumes">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.Albumes">
+        <MappingFragment StoreEntitySet="Albumes">
+          <ScalarProperty Name="Id_Album" ColumnName="Id_Album" />
+          <ScalarProperty Name="Id_Artista" ColumnName="Id_Artista" />
+          <ScalarProperty Name="Nombre_Album" ColumnName="Nombre_Album" />
+          <ScalarProperty Name="Ano_Lanzamiento" ColumnName="Ano_Lanzamiento" />
+          <ScalarProperty Name="Imagen_Album" ColumnName="Imagen_Album" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artistas">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.Artistas">
+        <MappingFragment StoreEntitySet="Artistas">
+          <ScalarProperty Name="Id_Artista" ColumnName="Id_Artista" />
+          <ScalarProperty Name="Nombre_Artistico" ColumnName="Nombre_Artistico" />
+          <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+          <ScalarProperty Name="Nombre_Real" ColumnName="Nombre_Real" />
+          <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+          <ScalarProperty Name="Imagen_Artista" ColumnName="Imagen_Artista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Canciones">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.Canciones">
+        <MappingFragment StoreEntitySet="Canciones">
+          <ScalarProperty Name="Id_Cancion" ColumnName="Id_Cancion" />
+          <ScalarProperty Name="Id_Genero" ColumnName="Id_Genero" />
+          <ScalarProperty Name="Id_Album" ColumnName="Id_Album" />
+          <ScalarProperty Name="Nombre_Cancion" ColumnName="Nombre_Cancion" />
+          <ScalarProperty Name="Video_URL" ColumnName="Video_URL" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Canciones_Disponibles" ColumnName="Canciones_Disponibles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleFactura">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.DetalleFactura">
+        <MappingFragment StoreEntitySet="DetalleFactura">
+          <ScalarProperty Name="DetalleId" ColumnName="DetalleId" />
+          <ScalarProperty Name="Id_Factura" ColumnName="Id_Factura" />
+          <ScalarProperty Name="Id_Cancion" ColumnName="Id_Cancion" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.Facturas">
+        <MappingFragment StoreEntitySet="Facturas">
+          <ScalarProperty Name="Id_Factura" ColumnName="Id_Factura" />
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+          <ScalarProperty Name="NumeroFactura" ColumnName="NumeroFactura" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="IVA" ColumnName="IVA" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Generos">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.Generos">
+        <MappingFragment StoreEntitySet="Generos">
+          <ScalarProperty Name="Id_Genero" ColumnName="Id_Genero" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pagos">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.Pagos">
+        <MappingFragment StoreEntitySet="Pagos">
+          <ScalarProperty Name="PagoId" ColumnName="PagoId" />
+          <ScalarProperty Name="Id_Factura" ColumnName="Id_Factura" />
+          <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
+          <ScalarProperty Name="MontoPagado" ColumnName="MontoPagado" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="CodigoAutorizacion" ColumnName="CodigoAutorizacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tarjetas">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.Tarjetas">
+        <MappingFragment StoreEntitySet="Tarjetas">
+          <ScalarProperty Name="Id_Tarjeta" ColumnName="Id_Tarjeta" />
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="Id_Tipo" ColumnName="Id_Tipo" />
+          <ScalarProperty Name="Numero_Tarjeta" ColumnName="Numero_Tarjeta" />
+          <ScalarProperty Name="Fecha_Expiracion" ColumnName="Fecha_Expiracion" />
+          <ScalarProperty Name="CVC" ColumnName="CVC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Tarjeta">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.Tipo_Tarjeta">
+        <MappingFragment StoreEntitySet="Tipo_Tarjeta">
+          <ScalarProperty Name="Id_Tipo" ColumnName="Id_Tipo" />
+          <ScalarProperty Name="Descripción_Tipo" ColumnName="Descripción_Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="LaVentaMusicalModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TipoTarjeta" ColumnName="TipoTarjeta" />
+          <ScalarProperty Name="NumeroTarjeta" ColumnName="NumeroTarjeta" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CancionesFacturadas" TypeName="LaVentaMusicalModel.CancionesFacturadas" StoreEntitySet="CancionesFacturadas">
+      <EndProperty Name="Canciones">
+        <ScalarProperty Name="Id_Cancion" ColumnName="Id_Cancion" />
+      </EndProperty>
+      <EndProperty Name="Facturas">
+        <ScalarProperty Name="Id_Factura" ColumnName="Id_Factura" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Carritos" TypeName="LaVentaMusicalModel.Carritos" StoreEntitySet="Carritos">
+      <EndProperty Name="Canciones">
+        <ScalarProperty Name="Id_Cancion" ColumnName="Id_Cancion" />
+      </EndProperty>
+      <EndProperty Name="Usuarios">
+        <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
