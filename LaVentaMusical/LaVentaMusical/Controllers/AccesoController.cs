@@ -63,6 +63,7 @@ namespace LaVentaMusical.Controllers
                 // Usar el contexto generado por Entity Framework
                 using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
                 {
+                    usuarios.Perfil = "usuario";
                     context.Usuarios.Add(usuarios);
                     context.SaveChanges();
                 }

@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\LaVentaMusical\\",
+  "WorkspaceRootPath": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\laventamusical\\laventamusical\\views\\acceso\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\acceso\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\acceso\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\laventamusical\\laventamusical\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\laventamusical\\laventamusical\\views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,50 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Registro.cshtml",
-              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\LaVentaMusical\\LaVentaMusical\\Views\\Acceso\\Registro.cshtml",
-              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Acceso\\Registro.cshtml",
-              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\LaVentaMusical\\LaVentaMusical\\Views\\Acceso\\Registro.cshtml",
-              "RelativeToolTip": "LaVentaMusical\\Views\\Acceso\\Registro.cshtml",
-              "ViewState": "AgIAAK4AAAAAAAAAAAAAALwAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-26T05:56:25.368Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\LaVentaMusical\\LaVentaMusical\\Views\\Acceso\\Login.cshtml",
-              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Acceso\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\LaVentaMusical\\LaVentaMusical\\Views\\Acceso\\Login.cshtml",
-              "RelativeToolTip": "LaVentaMusical\\Views\\Acceso\\Login.cshtml",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAAAHkAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-26T05:35:29.136Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "AccesoController.cs",
-              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\LaVentaMusical\\LaVentaMusical\\Controllers\\AccesoController.cs",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\AccesoController.cs",
               "RelativeDocumentMoniker": "LaVentaMusical\\Controllers\\AccesoController.cs",
-              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\LaVentaMusical\\LaVentaMusical\\Controllers\\AccesoController.cs",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\AccesoController.cs",
               "RelativeToolTip": "LaVentaMusical\\Controllers\\AccesoController.cs",
-              "ViewState": "AgIAADEAAABAZmZmZmYkwBkAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAUwEEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T05:17:37.57Z",
+              "WhenOpened": "2024-12-04T19:39:36.234Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Registro.cshtml",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Acceso\\Registro.cshtml",
+              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Acceso\\Registro.cshtml",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Acceso\\Registro.cshtml",
+              "RelativeToolTip": "LaVentaMusical\\Views\\Acceso\\Registro.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwFQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-04T19:39:32.133Z",
+              "EditorCaption": ""
             }
           ]
         }
