@@ -43,9 +43,8 @@
                 @Html.DropDownListFor(model => model.Genero,
                     new SelectList(new[]
                     {
-                        new { Value = "Masculino", Text = "Masculino" },
-                        new { Value = "Femenino", Text = "Femenino" },
-                        new { Value = "No especificado", Text = "No especificado" }
+                        new { Value = "M", Text = "Masculino" },
+                        new { Value = "F", Text = "Femenino" }
                     }, "Value", "Text"),
                     "Seleccione un género",
                     new { @class = "form-select" })

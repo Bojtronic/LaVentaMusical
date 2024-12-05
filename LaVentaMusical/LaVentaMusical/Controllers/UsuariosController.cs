@@ -40,7 +40,7 @@ namespace LaVentaMusical.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-            return View(new Usuarios());
+            return View();
         }
 
         // POST: Usuarios/Create
@@ -52,14 +52,17 @@ namespace LaVentaMusical.Controllers
                 // Usar el contexto generado por Entity Framework
                 using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
                 {
+                    usuarios.Perfil = "usuario";
                     context.Usuarios.Add(usuarios);
                     context.SaveChanges();
                 }
 
+                // Redirigir al usuario a la página de inicio de sesión
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
+                // Manejo de errores
                 ViewBag.Error = $"Ocurrió un error al registrar el usuario: {ex.Message}";
                 return View();
             }
