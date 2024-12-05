@@ -40,7 +40,7 @@ namespace LaVentaMusical.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new Usuarios());
         }
 
         // POST: Usuarios/Create
@@ -58,8 +58,9 @@ namespace LaVentaMusical.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Error = $"Ocurrió un error al registrar el usuario: {ex.Message}";
                 return View();
             }
         }
