@@ -112,27 +112,22 @@ namespace LaVentaMusical.Controllers
         // GET: Generos/Delete/5
         public ActionResult Delete(int id)
         {
-            using (var context = new LaVentaMusicalEntities())
+            using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
             {
-                var genero = context.Generos.FirstOrDefault(g => g.Id_Genero == id);
-                if (genero == null)
-                {
-                    return HttpNotFound();
-                }
+                var genero = context.Generos.FirstOrDefault(x => x.Id_Genero == id);
                 return View(genero);
             }
         }
 
         // POST: Generos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                using (var context = new LaVentaMusicalEntities())
+                using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
                 {
-                    var genero = context.Generos.FirstOrDefault(g => g.Id_Genero == id);
+                    Generos genero = context.Generos.FirstOrDefault(x => x.Id_Genero == id);
                     if (genero != null)
                     {
                         context.Generos.Remove(genero);
@@ -142,9 +137,8 @@ namespace LaVentaMusical.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch
             {
-                ViewBag.Error = $"Ocurrió un error al eliminar el género: {ex.Message}";
                 return View();
             }
         }
