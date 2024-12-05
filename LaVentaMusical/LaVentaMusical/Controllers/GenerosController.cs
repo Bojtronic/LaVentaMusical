@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LaVentaMusical.Models;
+using System;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LaVentaMusical.Controllers
 {
     public class GenerosController : Controller
     {
-        // GET: Generos
+        // GET: Generos/Index
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: Generos/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+            using (var context = new LaVentaMusicalEntities())
+            {
+                var generos = context.Generos.ToList();
+                return View(generos);
+            }
         }
 
         // GET: Generos/Create
@@ -28,16 +25,27 @@ namespace LaVentaMusical.Controllers
 
         // POST: Generos/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Generos genero)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (!ModelState.IsValid)
+                {
+                    return View(genero);
+                }
+
+                using (var context = new LaVentaMusicalEntities())
+                {
+                    context.Generos.Add(genero);
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Error = $"Ocurrió un error al registrar el género: {ex.Message}";
                 return View();
             }
         }
@@ -45,43 +53,98 @@ namespace LaVentaMusical.Controllers
         // GET: Generos/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (var context = new LaVentaMusicalEntities())
+            {
+                var genero = context.Generos.FirstOrDefault(g => g.Id_Genero == id);
+                if (genero == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(genero);
+            }
         }
 
         // POST: Generos/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Generos genero)
         {
             try
             {
-                // TODO: Add update logic here
+                if (!ModelState.IsValid)
+                {
+                    return View(genero);
+                }
+
+                using (var context = new LaVentaMusicalEntities())
+                {
+                    var generoExistente = context.Generos.FirstOrDefault(g => g.Id_Genero == genero.Id_Genero);
+                    if (generoExistente != null)
+                    {
+                        generoExistente.Descripcion = genero.Descripcion;
+                        context.SaveChanges();
+                    }
+                }
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Error = $"Ocurrió un error al actualizar el género: {ex.Message}";
                 return View();
+            }
+        }
+
+        // GET: Generos/Details/5
+        public ActionResult Details(int id)
+        {
+            using (var context = new LaVentaMusicalEntities())
+            {
+                var genero = context.Generos.FirstOrDefault(g => g.Id_Genero == id);
+                if (genero == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(genero);
             }
         }
 
         // GET: Generos/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (var context = new LaVentaMusicalEntities())
+            {
+                var genero = context.Generos.FirstOrDefault(g => g.Id_Genero == id);
+                if (genero == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(genero);
+            }
         }
 
         // POST: Generos/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (var context = new LaVentaMusicalEntities())
+                {
+                    var genero = context.Generos.FirstOrDefault(g => g.Id_Genero == id);
+                    if (genero != null)
+                    {
+                        context.Generos.Remove(genero);
+                        context.SaveChanges();
+                    }
+                }
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Error = $"Ocurrió un error al eliminar el género: {ex.Message}";
                 return View();
             }
         }
