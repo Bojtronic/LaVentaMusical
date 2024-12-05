@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LaVentaMusical.Models.Artistas>
+
+<h2>Lista de Artistas</h2>
+
+@Html.ActionLink("Agregar Artista", "Create", null, new { @class = "btn btn-success" })
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Nombre Artístico</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Nacionalidad</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Action("ObtenerImagen", "Artistas", new { id = item.Id_Artista })"
+                         alt="Foto de @item.Nombre_Artistico"
+                         class="artist-image" />
+                </td>
+                <td>@item.Nombre_Artistico</td>
+                <td>@item.Fecha_Nacimiento</td>
+                <td>@item.Nacionalidad</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id_Artista }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id_Artista }, new { @class = "btn btn-warning" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<style>
+    .artist-image {
+        width: 100px; /* Ajustar al tamaño deseado */
+        height: 100px; /* Ajustar al tamaño deseado */
+        object-fit: cover; /* Asegura que la imagen se recorte proporcionalmente */
+        border-radius: 5px; /* Opcional: esquinas redondeadas */
+    }
+</style>

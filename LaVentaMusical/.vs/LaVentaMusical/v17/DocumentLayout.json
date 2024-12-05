@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\generos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\generos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\generos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\generos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\artistas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\artistas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\laventamusical\\controllers\\generoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\controllers\\generoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\controllers\\artistascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\controllers\\artistascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\artistas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\artistas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\generos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\generos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\artistas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\artistas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,67 +38,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsuariosController.cs",
-              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\UsuariosController.cs",
-              "RelativeDocumentMoniker": "LaVentaMusical\\Controllers\\UsuariosController.cs",
-              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "LaVentaMusical\\Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAwwIoAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T06:06:58.457Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GenerosController.cs",
-              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\GenerosController.cs",
-              "RelativeDocumentMoniker": "LaVentaMusical\\Controllers\\GenerosController.cs",
-              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\GenerosController.cs",
-              "RelativeToolTip": "LaVentaMusical\\Controllers\\GenerosController.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAIwI8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T03:11:47.008Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Generos\\Index.cshtml",
-              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Generos\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Generos\\Index.cshtml",
-              "RelativeToolTip": "LaVentaMusical\\Views\\Generos\\Index.cshtml",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAAB0AAAB4AAAAAAAAAA==",
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Web.config",
+              "RelativeDocumentMoniker": "LaVentaMusical\\Web.config",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Web.config",
+              "RelativeToolTip": "LaVentaMusical\\Web.config",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-12-05T07:11:38.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Artistas\\Edit.cshtml",
+              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Artistas\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Artistas\\Edit.cshtml",
+              "RelativeToolTip": "LaVentaMusical\\Views\\Artistas\\Edit.cshtml",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAADMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T06:02:12.648Z",
+              "WhenOpened": "2024-12-05T06:28:31.223Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Generos\\Delete.cshtml",
-              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Generos\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Generos\\Delete.cshtml",
-              "RelativeToolTip": "LaVentaMusical\\Views\\Generos\\Delete.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAANAAAAAAAAAA==",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Artistas\\Create.cshtml",
+              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Artistas\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Artistas\\Create.cshtml",
+              "RelativeToolTip": "LaVentaMusical\\Views\\Artistas\\Create.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T06:02:10.684Z",
+              "WhenOpened": "2024-12-05T06:27:55.069Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Generos\\Edit.cshtml",
-              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Generos\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Generos\\Edit.cshtml",
-              "RelativeToolTip": "LaVentaMusical\\Views\\Generos\\Edit.cshtml",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAABYAAAAOAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Artistas\\Index.cshtml",
+              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Artistas\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Artistas\\Index.cshtml",
+              "RelativeToolTip": "LaVentaMusical\\Views\\Artistas\\Index.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABoAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T03:18:16.229Z",
+              "WhenOpened": "2024-12-05T06:27:27.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ArtistasController.cs",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\ArtistasController.cs",
+              "RelativeDocumentMoniker": "LaVentaMusical\\Controllers\\ArtistasController.cs",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\ArtistasController.cs",
+              "RelativeToolTip": "LaVentaMusical\\Controllers\\ArtistasController.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAA0wLYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T06:26:13.037Z",
               "EditorCaption": ""
             }
           ]
