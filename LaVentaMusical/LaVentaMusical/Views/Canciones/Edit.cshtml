@@ -1,0 +1,52 @@
+﻿@model LaVentaMusical.Models.Canciones
+@{
+    ViewBag.Title = "Editar Canción";
+}
+
+<h2>Editar Canción</h2>
+
+@using (Html.BeginForm("Edit", "Canciones", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id_Cancion)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre_Cancion)
+        @Html.TextBoxFor(model => model.Nombre_Cancion, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Id_Genero, "Género")
+        @Html.DropDownListFor(model => model.Id_Genero, ViewBag.Id_Genero as SelectList, "Seleccione un género", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Id_Genero, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Id_Album, "Álbum")
+        @Html.DropDownListFor(model => model.Id_Album, ViewBag.Id_Album as SelectList, "Seleccione un álbum", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Id_Album, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Video_URL, "Enlace de Video")
+        @Html.TextBoxFor(model => model.Video_URL, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Precio)
+        @Html.TextBoxFor(model => model.Precio, new { @class = "form-control", type = "number", step = "0.01" })
+        @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Canciones_Disponibles, "Cantidad Disponible")
+        @Html.TextBoxFor(model => model.Canciones_Disponibles, new { @class = "form-control", type = "number", min = "0" })
+        @Html.ValidationMessageFor(model => model.Canciones_Disponibles, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+}
+
+<p>
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

@@ -1,0 +1,40 @@
+﻿@model LaVentaMusical.Models.Canciones
+@{
+    ViewBag.Title = "Agregar Canción";
+}
+
+<h2>Agregar Canción</h2>
+
+@using (Html.BeginForm("Create", "Canciones", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre_Cancion)
+        @Html.TextBoxFor(model => model.Nombre_Cancion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Id_Genero, "Género")
+        @Html.DropDownList("Id_Genero", null, "Seleccione un género", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Id_Album, "Álbum")
+        @Html.DropDownList("Id_Album", null, "Seleccione un álbum", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Video_URL, "Enlace de Video")
+        @Html.TextBoxFor(model => model.Video_URL, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Precio)
+        @Html.TextBoxFor(model => model.Precio, new { @class = "form-control", type = "number", step = "0.01" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Canciones_Disponibles, "Cantidad Disponible")
+        @Html.TextBoxFor(model => model.Canciones_Disponibles, new { @class = "form-control", type = "number", min = "0" })
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
+
+<p>
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

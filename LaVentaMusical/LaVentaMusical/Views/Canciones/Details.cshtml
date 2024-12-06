@@ -1,0 +1,35 @@
+﻿@model LaVentaMusical.Models.Canciones
+@{
+    ViewBag.Title = "Detalles de la Canción";
+}
+
+<h2>Detalles de la Canción</h2>
+
+<div>
+    <h4>@Model.Nombre_Cancion</h4>
+    <dl class="dl-horizontal">
+        <dt>Género</dt>
+        <dd>@Model.Generos.Descripcion</dd>
+
+        <dt>Álbum</dt>
+        <dd>@Model.Albumes.Nombre_Album</dd>
+
+        <dt>Artista</dt>
+        <dd>@Model.Albumes.Artistas.Nombre_Artistico</dd>
+
+        <dt>Precio</dt>
+        <dd>@(Model.Precio.HasValue ? Model.Precio.Value.ToString("C") : "N/A")</dd>
+
+
+        <dt>Cantidad Disponible</dt>
+        <dd>@Model.Canciones_Disponibles</dd>
+
+        <dt>Enlace de Video</dt>
+        <dd><a href="@Model.Video_URL" target="_blank">Ver Video</a></dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id_Cancion }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

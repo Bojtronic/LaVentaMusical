@@ -345,10 +345,13 @@
     <Content Include="Views\Albumes\Index.cshtml" />
     <Content Include="Views\Albumes\Edit.cshtml" />
     <Content Include="Views\Albumes\Create.cshtml" />
+    <Content Include="Views\Canciones\Index.cshtml" />
+    <Content Include="Views\Canciones\Create.cshtml" />
+    <Content Include="Views\Canciones\Edit.cshtml" />
+    <Content Include="Views\Canciones\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Canciones\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

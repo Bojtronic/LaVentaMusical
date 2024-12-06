@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LaVentaMusical.Models.Canciones>
+@{
+    ViewBag.Title = "Canciones";
+}
+
+<h2>Canciones</h2>
+
+<div class="text-center mb-4">
+    <a href="@Url.Action("Index", "HomeAdmin")" class="btn btn-link">Admin Home page</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Álbum</th>
+            <th>Artista</th>
+            <th>Precio</th>
+            <th>Cantidad Disponible</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id_Cancion</td>
+                <td>@item.Nombre_Cancion</td>
+                <td>@item.Albumes.Nombre_Album</td>
+                <td>@item.Albumes.Artistas.Nombre_Artistico</td>
+                <td>@(item.Precio.HasValue ? item.Precio.Value.ToString("C") : "N/A")</td>
+                <td>@item.Canciones_Disponibles</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id_Cancion }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id_Cancion }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id_Cancion }, new { @class = "text-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Agregar Canción", "Create", null, new { @class = "btn btn-primary" })
+</p>
