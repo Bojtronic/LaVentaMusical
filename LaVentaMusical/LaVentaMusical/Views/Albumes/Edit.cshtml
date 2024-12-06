@@ -1,0 +1,55 @@
+﻿@model LaVentaMusical.Models.Albumes
+
+<h2>Editar Álbum</h2>
+@using (Html.BeginForm("Edit", "Albumes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <!-- Campo no editable para mostrar el Código del Álbum -->
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id_Album, "Código del Álbum")
+        @Html.TextBoxFor(m => m.Id_Album, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <!-- Nombre del Álbum -->
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nombre_Album, "Nombre del Álbum")
+        @Html.TextBoxFor(m => m.Nombre_Album, new { @class = "form-control" })
+    </div>
+
+    <!-- Año de Lanzamiento -->
+    <div class="form-group">
+        @Html.LabelFor(m => m.Ano_Lanzamiento, "Año de Lanzamiento")
+        @Html.TextBoxFor(m => m.Ano_Lanzamiento, new { @class = "form-control", type = "number", min = "1900", max = DateTime.Now.Year })
+    </div>
+
+    <!-- Relación con Artista -->
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id_Artista, "Artista")
+        @Html.DropDownListFor(m => m.Id_Artista, (SelectList)ViewBag.Artistas, "Seleccione un Artista", new { @class = "form-control" })
+    </div>
+
+    <!-- Mostrar portada actual del álbum si existe -->
+    <div class="form-group">
+        <label>Portada Actual</label>
+        <div>
+            @if (Model.Imagen_Album != null)
+            {
+                <img src="@Url.Action("ObtenerPortada", "Albumes", new { id = Model.Id_Album })" alt="Portada del Álbum" class="img-thumbnail" style="max-width: 200px;" />
+            }
+            else
+            {
+                <p>No hay portada disponible</p>
+            }
+        </div>
+    </div>
+
+    <!-- Campo para subir una nueva portada -->
+    <div class="form-group">
+        @Html.Label("Nueva Portada del Álbum (Dejar vacío para no actualizar)")
+        <input type="file" name="portada" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+}

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LaVentaMusical.Models.Albumes>
+
+<h2>Lista de Álbumes</h2>
+
+<div class="text-center mb-4">
+    <a href="@Url.Action("Index", "HomeAdmin")" class="btn btn-link">Admin Home page</a>
+</div>
+
+@Html.ActionLink("Agregar Álbum", "Create", null, new { @class = "btn btn-success" })
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre del Álbum</th>
+            <th>Año de Lanzamiento</th>
+            <th>Artista</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Action("ObtenerImagen", "Albumes", new { id = item.Id_Album })"
+                         alt="Portada de @item.Nombre_Album"
+                         class="album-image" />
+                </td>
+                <td>@item.Nombre_Album</td>
+                <td>@item.Ano_Lanzamiento</td>
+                <td>@item.Artistas.Nombre_Artistico</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id_Album }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id_Album }, new { @class = "btn btn-warning" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .album-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+</style>

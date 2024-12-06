@@ -252,6 +252,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\imagenes\default_album.png" />
+    <Content Include="Content\imagenes\default_artist.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -340,11 +342,12 @@
     <Content Include="Views\Artistas\Index.cshtml" />
     <Content Include="Views\Artistas\Create.cshtml" />
     <Content Include="Views\Artistas\Edit.cshtml" />
+    <Content Include="Views\Albumes\Index.cshtml" />
+    <Content Include="Views\Albumes\Edit.cshtml" />
+    <Content Include="Views\Albumes\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\imagenes\" />
-    <Folder Include="Views\Albumes\" />
     <Folder Include="Views\Canciones\" />
   </ItemGroup>
   <ItemGroup>

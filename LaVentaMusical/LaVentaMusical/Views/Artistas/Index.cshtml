@@ -2,6 +2,10 @@
 
 <h2>Lista de Artistas</h2>
 
+<div class="text-center mb-4">
+    <a href="@Url.Action("Index", "HomeAdmin")" class="btn btn-link">Admin Home page</a>
+</div>
+
 @Html.ActionLink("Agregar Artista", "Create", null, new { @class = "btn btn-success" })
 
 <table class="table table-bordered">

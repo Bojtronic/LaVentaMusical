@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LaVentaMusical.Models;
 
 namespace LaVentaMusical.Controllers
 {
@@ -11,33 +14,64 @@ namespace LaVentaMusical.Controllers
         // GET: Albumes
         public ActionResult Index()
         {
-            return View();
+            // Cargar los álbumes junto con los artistas
+            var albumes = new List<Albumes>();
+
+            // Cargar la lista de artistas para el filtro
+            using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
+            {
+                albumes = context.Albumes.Include(a => a.Artistas).ToList();
+
+                // Cargar la lista de artistas para el filtro
+                ViewBag.Artistas = new SelectList(context.Artistas, "Id_Artista", "Nombre_Artistico");
+            }
+
+            return View(albumes);
         }
 
-        // GET: Albumes/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         // GET: Albumes/Create
         public ActionResult Create()
         {
+            ViewBag.Id_Artista = new SelectList(new LaVentaMusicalEntities().Artistas, "Id_Artista", "Nombre_Artistico");
             return View();
         }
 
         // POST: Albumes/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Albumes album, HttpPostedFileBase imagen)
         {
             try
             {
-                // TODO: Add insert logic here
+                using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
+                {
+                    if (imagen != null && imagen.ContentLength > 0)
+                    {
+                        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                        var fileExtension = Path.GetExtension(imagen.FileName).ToLower();
+
+                        if (!allowedExtensions.Contains(fileExtension))
+                        {
+                            ModelState.AddModelError("Imagen_Album", "Solo se permiten archivos de imagen (.jpg, .jpeg, .png, .gif).");
+                            ViewBag.Id_Artista = new SelectList(context.Artistas, "Id_Artista", "Nombre_Artistico", album.Id_Artista);
+                            return View(album);
+                        }
+
+                        using (var reader = new BinaryReader(imagen.InputStream))
+                        {
+                            album.Imagen_Album = reader.ReadBytes(imagen.ContentLength);
+                        }
+                    }
+
+                    context.Albumes.Add(album);
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Error = $"Ocurrió un error al agregar el álbum: {ex.Message}";
                 return View();
             }
         }
@@ -45,45 +79,87 @@ namespace LaVentaMusical.Controllers
         // GET: Albumes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
+            {
+                var album = context.Albumes.Find(id);
+                if (album == null) return HttpNotFound();
+                ViewBag.Id_Artista = new SelectList(context.Artistas, "Id_Artista", "Nombre_Artistico", album.Id_Artista);
+                return View(album);
+            }
         }
 
         // POST: Albumes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Albumes album, HttpPostedFileBase imagen)
         {
             try
             {
-                // TODO: Add update logic here
+                using (var context = new LaVentaMusicalEntities())
+                {
+                    var albumExistente = context.Albumes.FirstOrDefault(a => a.Id_Album == id);
+                    if (albumExistente == null) return HttpNotFound();
+
+                    albumExistente.Nombre_Album = album.Nombre_Album;
+                    albumExistente.Ano_Lanzamiento = album.Ano_Lanzamiento;
+                    albumExistente.Id_Artista = album.Id_Artista;
+
+                    if (imagen != null && imagen.ContentLength > 0)
+                    {
+                        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                        var fileExtension = Path.GetExtension(imagen.FileName).ToLower();
+
+                        if (!allowedExtensions.Contains(fileExtension))
+                        {
+                            ModelState.AddModelError("Imagen_Album", "Solo se permiten archivos de imagen (.jpg, .jpeg, .png, .gif).");
+                            ViewBag.Id_Artista = new SelectList(context.Artistas, "Id_Artista", "Nombre_Artistico", album.Id_Artista);
+                            return View(album);
+                        }
+
+                        using (var memoria = new MemoryStream())
+                        {
+                            imagen.InputStream.CopyTo(memoria);
+                            albumExistente.Imagen_Album = memoria.ToArray();
+                        }
+                    }
+
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", "Ocurrió un error al actualizar el álbum: " + ex.Message);
+                return View(album);
             }
         }
 
-        // GET: Albumes/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Albumes/Details/5
+        public ActionResult Details(int id)
         {
-            return View();
+            using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
+            {
+                var album = context.Albumes.Include(a => a.Artistas).FirstOrDefault(a => a.Id_Album == id);
+                if (album == null) return HttpNotFound();
+                return View(album);
+            }
         }
 
-        // POST: Albumes/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        // Obtener imagen del álbum
+        public FileContentResult ObtenerImagen(int id)
         {
-            try
+            using (var context = new LaVentaMusicalEntities())
             {
-                // TODO: Add delete logic here
+                var album = context.Albumes.FirstOrDefault(a => a.Id_Album == id);
+                if (album != null && album.Imagen_Album != null)
+                {
+                    return File(album.Imagen_Album, "image/jpeg");
+                }
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            string rutaImagenPorDefecto = Server.MapPath("~/Content/imagenes/default_album.png");
+            byte[] imagenPorDefecto = System.IO.File.ReadAllBytes(rutaImagenPorDefecto);
+            return File(imagenPorDefecto, "image/jpeg");
         }
     }
 }
