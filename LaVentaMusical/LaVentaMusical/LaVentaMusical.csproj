@@ -181,6 +181,7 @@
     <Compile Include="Controllers\HomeUsuarioController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\VentaCancionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -349,6 +350,8 @@
     <Content Include="Views\Canciones\Create.cshtml" />
     <Content Include="Views\Canciones\Edit.cshtml" />
     <Content Include="Views\Canciones\Details.cshtml" />
+    <Content Include="Views\VentaCanciones\Index.cshtml" />
+    <Content Include="Views\VentaCanciones\Carrito.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

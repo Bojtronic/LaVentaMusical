@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\canciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\canciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\controllers\\ventacancionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\controllers\\ventacancionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\ventacanciones\\carrito.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\ventacanciones\\carrito.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|c:\\users\\manuel\\documents\\brete\\silvana\\repo\\laventamusical\\laventamusical\\laventamusical\\views\\ventacanciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{16F6417B-8A03-4BD9-AEB5-B16257085F98}|LaVentaMusical\\LaVentaMusical.csproj|solutionrelative:laventamusical\\views\\ventacanciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,15 +30,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Canciones\\Index.cshtml",
-              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\Canciones\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\Canciones\\Index.cshtml",
-              "RelativeToolTip": "LaVentaMusical\\Views\\Canciones\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Carrito.cshtml",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\VentaCanciones\\Carrito.cshtml",
+              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\VentaCanciones\\Carrito.cshtml",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\VentaCanciones\\Carrito.cshtml",
+              "RelativeToolTip": "LaVentaMusical\\Views\\VentaCanciones\\Carrito.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-06T19:57:02Z",
+              "WhenOpened": "2024-12-07T00:59:54.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\VentaCanciones\\Index.cshtml",
+              "RelativeDocumentMoniker": "LaVentaMusical\\Views\\VentaCanciones\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Views\\VentaCanciones\\Index.cshtml",
+              "RelativeToolTip": "LaVentaMusical\\Views\\VentaCanciones\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-06T23:06:06.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VentaCancionesController.cs",
+              "DocumentMoniker": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\VentaCancionesController.cs",
+              "RelativeDocumentMoniker": "LaVentaMusical\\Controllers\\VentaCancionesController.cs",
+              "ToolTip": "C:\\Users\\Manuel\\Documents\\Brete\\Silvana\\repo\\LaVentaMusical\\LaVentaMusical\\LaVentaMusical\\Controllers\\VentaCancionesController.cs",
+              "RelativeToolTip": "LaVentaMusical\\Controllers\\VentaCancionesController.cs",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAmwB4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T21:50:33.253Z",
               "EditorCaption": ""
             }
           ]

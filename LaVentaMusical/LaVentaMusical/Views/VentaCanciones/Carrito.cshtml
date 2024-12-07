@@ -1,0 +1,93 @@
+﻿@model List<LaVentaMusical.Controllers.VentaCancionesController.CancionViewModel>
+
+@{
+    ViewBag.Title = "Carrito";
+}
+
+<h2>Carrito de Compras</h2>
+
+<a href="@Url.Action("Index", "VentaCanciones")" class="btn btn-primary">Seguir comprando</a>
+
+@if (!Model.Any())
+{
+    <p>No hay canciones en el carrito.</p>
+    <a href="@Url.Action("Index")" class="btn btn-primary">Volver a la tienda</a>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre de la Canción</th>
+                <th>Artista</th>
+                <th>Álbum</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cancion in Model)
+            {
+                <tr>
+                    <td>@cancion.NombreCancion</td>
+                    <td>@cancion.NombreArtista</td>
+                    <td>@cancion.NombreAlbum</td>
+                    <td>@cancion.Precio?.ToString("C")</td>
+                    <td>
+                        @using (Html.BeginForm("EliminarDelCarrito", "VentaCanciones", FormMethod.Post))
+                        {
+                            <input type="hidden" name="id" value="@cancion.NombreCancion" />
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="summary">
+        <p><strong>Subtotal:</strong> @ViewBag.Subtotal.ToString("C")</p>
+        <p><strong>IVA (13%):</strong> @ViewBag.IVA.ToString("C")</p>
+        <p><strong>Total:</strong> @ViewBag.Total.ToString("C")</p>
+    </div>
+
+    <h3>Método de Pago</h3>
+    using (Html.BeginForm("Facturar", "VentaCanciones", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="tipoPago">Seleccione el método de pago:</label>
+            <select id="tipoPago" name="tipoPago" class="form-control" required>
+                <option value="">Seleccione</option>
+                <option value="Efectivo">Efectivo</option>
+                <option value="Tarjeta">Tarjeta</option>
+            </select>
+        </div>
+
+        <div id="tarjeta-info" style="display:none;">
+            <div class="form-group">
+                <label for="tarjeta">Número de Tarjeta:</label>
+                <input type="text" id="tarjeta" name="tarjeta" class="form-control" maxlength="16" />
+            </div>
+            <div class="form-group">
+                <label for="codigoTarjeta">Código de Seguridad:</label>
+                <input type="text" id="codigoTarjeta" name="codigoTarjeta" class="form-control" maxlength="4" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Confirmar Compra</button>
+    }
+
+    using (Html.BeginForm("CancelarCompra", "VentaCanciones", FormMethod.Post))
+    {
+        <button type="submit" class="btn btn-danger">Cancelar Compra</button>
+    }
+}
+
+@section Scripts {
+    <script>
+        document.getElementById("tipoPago").addEventListener("change", function () {
+            var tarjetaInfo = document.getElementById("tarjeta-info");
+            tarjetaInfo.style.display = this.value === "Tarjeta" ? "block" : "none";
+        });
+    </script>
+}
