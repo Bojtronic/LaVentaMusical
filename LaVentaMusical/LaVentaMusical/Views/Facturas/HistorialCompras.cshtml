@@ -1,0 +1,88 @@
+﻿@model List<LaVentaMusical.Models.HistorialFacturaViewModel>
+
+ViewBag.Usuarios = context.Usuarios.ToList();
+
+@{
+    ViewBag.Title = "Historial de Compras";
+}
+
+<h2>Historial de Compras</h2>
+
+@if (TempData["MensajeError"] != null)
+{
+    <div class="alert alert-danger">@TempData["MensajeError"]</div>
+}
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["Mensaje"]</div>
+}
+
+<form method="get" action="@Url.Action("HistorialCompras")">
+    <div class="form-group">
+        <label for="userId">Filtrar por Usuario</label>
+        <select id="userId" name="userId" class="form-control">
+            <option value="">-- Seleccionar Usuario --</option>
+            @foreach (var usuario in ViewBag.Usuarios)
+            {
+                <option value="@usuario.Id" @(Request.QueryString["userId"] == usuario.Id.ToString() ? "selected" : "")>@usuario.Nombre_Usuario</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Factura</th>
+            <th>Fecha</th>
+            <th>Usuario</th>
+            <th>Subtotal</th>
+            <th>IVA</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Factura</th>
+                        <th>Fecha</th>
+                        <th>Usuario</th>
+                        <th>Subtotal</th>
+                        <th>IVA</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var factura in Model)
+                    {
+                        <tr>
+                            <td>@factura.NumeroFactura</td>
+                            <td>@factura.FechaCompra?.ToString("dd/MM/yyyy")</td>
+                            <td>@factura.Usuario</td>
+                            <td>@factura.SubTotal?.ToString()</td>
+                            <td>@factura.IVA?.ToString()</td>
+                            <td>@factura.Total.ToString("C")</td>
+                            <td>
+                                <a href="@Url.Action("FacturaDetalle", "Facturas", new { numeroFactura = factura.NumeroFactura })" class="btn btn-info btn-sm">Ver Detalles</a>
+                                <a href="@Url.Action("GenerarPDF", "Facturas", new { numeroFactura = factura.NumeroFactura })" class="btn btn-primary btn-sm">Generar PDF</a>
+                                <a href="@Url.Action("EnviarFacturaCorreo", "Facturas", new { numeroFactura = factura.NumeroFactura, emailDestino = "example@example.com" })" class="btn btn-success btn-sm">Enviar por Correo</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No se encontraron facturas.</p>
+        }
+
+    </tbody>
+</table>

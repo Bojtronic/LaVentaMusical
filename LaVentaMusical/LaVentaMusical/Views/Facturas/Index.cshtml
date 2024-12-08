@@ -1,0 +1,53 @@
+﻿@model List<LaVentaMusical.Models.HistorialFacturaViewModel>
+
+@{
+    ViewBag.Title = "Historial de Compras";
+}
+
+<h2>Historial de Compras</h2>
+
+@if (TempData["MensajeError"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["MensajeError"]
+    </div>
+}
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Mensaje"]
+    </div>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#Factura</th>
+            <th>Fecha de Compra</th>
+            <th>Usuario</th>
+            <th>Subtotal</th>
+            <th>IVA</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var factura in Model)
+        {
+            <tr>
+                <td>@factura.NumeroFactura</td>
+                <td>@factura.FechaCompra?.ToString("dd/MM/yyyy")</td>
+                <td>@factura.Usuario</td>
+                <td>@factura.SubTotal?.ToString()</td>
+                <td>@factura.IVA?.ToString()</td>
+                <td>@factura.Total.ToString("C")</td>
+                <td>
+                    <a href="@Url.Action("FacturaDetalle", "Facturas", new { numeroFactura = factura.NumeroFactura })" class="btn btn-info btn-sm">Ver Detalles</a>
+                    <a href="@Url.Action("GenerarPDF", "Facturas", new { numeroFactura = factura.NumeroFactura })" class="btn btn-primary btn-sm">Generar PDF</a>
+                    <a href="@Url.Action("EnviarFacturaCorreo", "Facturas", new { numeroFactura = factura.NumeroFactura, emailDestino = "usuario@mail.com" })" class="btn btn-success btn-sm">Enviar por Correo</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

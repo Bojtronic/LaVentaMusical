@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Enviar Factura por Correo";
+}
+
+<h2>Enviar Factura por Correo</h2>
+
+<p>Por favor, ingresa el correo electrónico al que deseas enviar la factura.</p>
+
+<form method="post" action="@Url.Action("EnviarFacturaCorreo")">
+    <input type="hidden" name="numeroFactura" value="@Request.QueryString["numeroFactura"]" />
+
+    <div class="form-group">
+        <label for="emailDestino">Correo Electrónico:</label>
+        <input type="email" id="emailDestino" name="emailDestino" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar Factura</button>
+    <a href="@Url.Action("HistorialCompras")" class="btn btn-secondary">Volver</a>
+</form>

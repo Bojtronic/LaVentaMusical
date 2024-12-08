@@ -234,3 +234,17 @@ C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVen
 C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\obj\Debug\LaVentaM.4C86F4A9.Up2Date
 C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\obj\Debug\LaVentaMusical.dll
 C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\obj\Debug\LaVentaMusical.pdb
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\BouncyCastle.Cryptography.dll
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\iTextSharp.LGPLv2.Core.dll
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\SkiaSharp.dll
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\System.Buffers.dll
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\System.Memory.dll
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\System.Numerics.Vectors.dll
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\BouncyCastle.Cryptography.xml
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\iTextSharp.LGPLv2.Core.xml
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\SkiaSharp.pdb
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\System.Buffers.xml
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\System.Memory.xml
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\System.Numerics.Vectors.xml
+C:\Users\Manuel\Documents\Brete\Silvana\repo\LaVentaMusical\LaVentaMusical\LaVentaMusical\bin\System.Runtime.CompilerServices.Unsafe.xml

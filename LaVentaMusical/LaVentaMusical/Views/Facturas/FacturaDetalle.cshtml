@@ -1,0 +1,38 @@
+﻿@model LaVentaMusical.Models.HistorialFacturaViewModel
+
+@{
+    ViewBag.Title = "Detalle de la Factura";
+}
+
+<h2>Detalle de la Factura @Model.NumeroFactura</h2>
+
+<p><strong>Fecha de Compra:</strong> @Model.FechaCompra.ToString("dd/MM/yyyy")</p>
+<p><strong>Usuario:</strong> @Model.Usuario</p>
+<p><strong>Subtotal:</strong> @Model.SubTotal.ToString("C")</p>
+<p><strong>IVA:</strong> @Model.IVA.ToString("C")</p>
+<p><strong>Total:</strong> @Model.Total.ToString("C")</p>
+
+<h3>Detalles de la Factura</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Canción</th>
+            <th>Precio Unitario</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalle in Model.Detalles)
+        {
+            <tr>
+                <td>@detalle.Cancion</td>
+                <td>@detalle.PrecioUnitario.ToString("C")</td>
+                <td>@detalle.Cantidad</td>
+                <td>@detalle.Subtotal.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Puedes agregar más funcionalidades como botones para descargar o enviar la factura -->
