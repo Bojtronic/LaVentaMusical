@@ -82,6 +82,20 @@ namespace LaVentaMusical.Controllers
            
         }
 
+        // GET: Usuarios/Edit_1/5
+        public ActionResult Edit_1(int id)
+        {
+            // Usar el contexto generado por Entity Framework
+            using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
+            {
+                var usuarios = context.Usuarios.Where(x => x.Id_Usuario == id).FirstOrDefault();
+
+                // Pasar la lista de usuarios a la vista
+                return View(usuarios);
+            }
+
+        }
+
         // POST: Usuarios/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Usuarios usuarios)
@@ -97,6 +111,28 @@ namespace LaVentaMusical.Controllers
                 // TODO: Add update logic here
 
                 return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // POST: Usuarios/Edit_1/5
+        [HttpPost]
+        public ActionResult Edit_1(int id, Usuarios usuarios)
+        {
+            try
+            {
+                // Usar el contexto generado por Entity Framework
+                using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
+                {
+                    context.Entry(usuarios).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
+                // TODO: Add update logic here
+
+                return RedirectToAction("HomeUsuario");
             }
             catch
             {

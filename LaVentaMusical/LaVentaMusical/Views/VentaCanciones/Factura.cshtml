@@ -1,0 +1,106 @@
+﻿@model LaVentaMusical.Models.Facturas
+
+@{
+    ViewBag.Title = "Factura";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Ajusta esto según tu estructura
+}
+
+<h2>Factura</h2>
+
+<div class="factura-container">
+    <h3>Detalles de la Factura</h3>
+    <table class="table">
+        <tr>
+            <th>Número de Factura:</th>
+            <td>@Model.NumeroFactura</td>
+        </tr>
+        <tr>
+            <th>Fecha de Compra:</th>
+            <td>@Model.FechaCompra.ToString()</td>
+        </tr>
+        <tr>
+            <th>Usuario:</th>
+            <td>@Model.Usuarios.Nombre_Usuario</td>
+        </tr>
+        <tr>
+            <th>Subtotal:</th>
+            <td>@Model.SubTotal.ToString()</td>
+        </tr>
+        <tr>
+            <th>IVA (13%):</th>
+            <td>@Model.IVA.ToString()</td>
+        </tr>
+        <tr>
+            <th>Total:</th>
+            <td>@Model.Total.ToString()</td>
+        </tr>
+    </table>
+
+    <h3>Detalle de Canciones</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Canción</th>
+                <th>Artista</th>
+                <th>Álbum</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Canciones.Count; i++)
+            {
+                var cancion = Model.Canciones.ElementAt(i);
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@cancion.Nombre_Cancion</td>
+                    <td>@cancion.Albumes.Artistas.Nombre_Artistico</td>
+                    <td>@cancion.Albumes.Nombre_Album</td>
+                    <td>@cancion.Precio?.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>Método de Pago</h3>
+    <table class="table">
+        <tr>
+            <th>Método:</th>
+            <td>@Model.Pagos.FirstOrDefault()?.MetodoPago</td>
+        </tr>
+        @if (Model.Pagos.FirstOrDefault()?.MetodoPago == "Tarjeta")
+        {
+            <tr>
+                <th>Tarjeta:</th>
+                <td>@Model.Pagos.FirstOrDefault()?.CodigoAutorizacion</td>
+            </tr>
+        }
+    </table>
+
+    <div class="text-center mt-4">
+        <a href="@Url.Action("Index", "VentaCanciones")" class="btn btn-primary">Regresar a la Tienda</a>
+    </div>
+</div>
+
+<style>
+    .factura-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .table th, .table td {
+        text-align: left;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .mt-4 {
+        margin-top: 1.5rem;
+    }
+</style>

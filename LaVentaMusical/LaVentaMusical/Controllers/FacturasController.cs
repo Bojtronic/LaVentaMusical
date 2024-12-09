@@ -82,6 +82,46 @@ namespace LaVentaMusical.Controllers
             }
         }
 
+        public ActionResult Index_1()
+        {
+            try
+            {
+                using (var context = new LaVentaMusicalEntities())
+                {
+                    // Obtener el UsuarioId de la sesión
+                    var usuarioId = Session["UsuarioId"] as int?;
+
+                    if (usuarioId == null)
+                    {
+                        TempData["MensajeError"] = "No se pudo obtener el identificador del usuario.";
+                        return RedirectToAction("Index_1"); // Redirigir si no hay UsuarioId en la sesión
+                    }
+
+                    // Filtra las facturas solo para el UsuarioId correspondiente
+                    var facturas = context.Facturas
+                        .Where(f => f.Id_Usuario == usuarioId)  // Filtro por UsuarioId
+                        .Select(f => new HistorialFacturaViewModel
+                        {
+                            NumeroFactura = f.NumeroFactura,
+                            FechaCompra = f.FechaCompra ?? DateTime.MinValue, // Manejo de valores nulos
+                            Usuario = f.Usuarios.Nombre_Usuario,
+                            SubTotal = f.SubTotal ?? 0,  // Si el subtotal es nulo, asigna 0
+                            IVA = f.IVA ?? 0,            // Si el IVA es nulo, asigna 0
+                            Total = f.Total
+                        })
+                        .ToList();
+
+                    // Pasa la lista de facturas como modelo a la vista
+                    return View(facturas);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                TempData["MensajeError"] = "Ocurrió un error al cargar las facturas: " + ex.Message;
+                return RedirectToAction("Index_1"); // Redirige al índice en caso de error
+            }
+        }
 
 
         // Acción para mostrar el historial de compras

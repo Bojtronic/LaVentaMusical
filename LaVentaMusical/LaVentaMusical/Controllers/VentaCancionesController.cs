@@ -27,6 +27,21 @@ namespace LaVentaMusical.Controllers
             }
         }
 
+        public ActionResult Index_1()
+        {
+            using (var context = new LaVentaMusicalEntities())
+            {
+                // Carga las relaciones con Albumes y Artistas
+                var canciones = context.Canciones
+                                       .Where(c => c.Canciones_Disponibles > 0)
+                                       .Include(c => c.Albumes) // Relación con Albumes
+                                       .Include(c => c.Albumes.Artistas) // Relación con Artistas a través de Albumes
+                                       .ToList();
+
+                return View(canciones);
+            }
+        }
+
         // GET: Agregar canción al carrito
         [HttpGet]
         public ActionResult AgregarAlCarrito(int id)
@@ -50,10 +65,52 @@ namespace LaVentaMusical.Controllers
             return RedirectToAction("Carrito");
         }
 
+        [HttpGet]
+        public ActionResult AgregarAlCarrito_1(int id)
+        {
+            using (var context = new LaVentaMusicalEntities())
+            {
+                var cancion = context.Canciones
+                    .Include(c => c.Albumes)
+                    .Include(c => c.Albumes.Artistas)
+                    .FirstOrDefault(c => c.Id_Cancion == id);
+
+                if (cancion != null && cancion.Canciones_Disponibles > 0)
+                {
+                    carrito.Add(cancion);
+                }
+                else
+                {
+                    TempData["Error"] = "La canción no está disponible o no existe.";
+                }
+            }
+            return RedirectToAction("Carrito_1");
+        }
+
 
 
         // GET: Carrito
         public ActionResult Carrito()
+        {
+            using (var context = new LaVentaMusicalEntities())
+            {
+                var canciones = carrito.Select(c => new CancionViewModel
+                {
+                    NombreCancion = c.Nombre_Cancion,
+                    NombreArtista = c.Albumes.Artistas.Nombre_Artistico,
+                    NombreAlbum = c.Albumes.Nombre_Album,
+                    Precio = c.Precio
+                }).ToList();
+
+                ViewBag.Subtotal = canciones.Sum(c => c.Precio ?? 0);
+                ViewBag.IVA = ViewBag.Subtotal * 0.13m;
+                ViewBag.Total = ViewBag.Subtotal + ViewBag.IVA;
+
+                return View(canciones);
+            }
+        }
+
+        public ActionResult Carrito_1()
         {
             using (var context = new LaVentaMusicalEntities())
             {
@@ -83,6 +140,17 @@ namespace LaVentaMusical.Controllers
                 carrito.Remove(cancion);
             }
             return RedirectToAction("Carrito");
+        }
+
+        [HttpPost]
+        public ActionResult EliminarDelCarrito_1(int id)
+        {
+            var cancion = carrito.FirstOrDefault(c => c.Id_Cancion == id);
+            if (cancion != null)
+            {
+                carrito.Remove(cancion);
+            }
+            return RedirectToAction("Carrito_1");
         }
 
 

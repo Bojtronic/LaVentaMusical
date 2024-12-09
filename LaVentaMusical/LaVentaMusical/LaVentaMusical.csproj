@@ -380,6 +380,11 @@
     <Content Include="Views\Facturas\EnviarFacturaCorreo.cshtml" />
     <Content Include="Views\Facturas\FacturaDetalle.cshtml" />
     <Content Include="Views\Facturas\Index.cshtml" />
+    <Content Include="Views\Usuarios\Edit_1.cshtml" />
+    <Content Include="Views\VentaCanciones\Index_1.cshtml" />
+    <Content Include="Views\VentaCanciones\Carrito_1.cshtml" />
+    <Content Include="Views\VentaCanciones\Factura.cshtml" />
+    <Content Include="Views\Facturas\Index_1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -36,7 +36,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Ventas de Canciones</h5>
                         <p class="card-text">Compra tus canciones favoritas.</p>
-                        <a href="@Url.Action("Index", "VentasCanciones")" class="btn btn-success">Ir al módulo</a>
+                        <a href="@Url.Action("Index_1", "VentaCanciones")" class="btn btn-success">Ir al módulo</a>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,8 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Actualizar Datos</h5>
                         <p class="card-text">Actualiza tu información personal.</p>
-                        <a href="@Url.Action("Actualizar", "Usuarios")" class="btn btn-success">Ir al módulo</a>
+                        <a href="@Url.Action("Edit_1", "Usuarios", new { id = Session["UsuarioId"] })" class="btn btn-success">Ir al módulo</a>
+
                     </div>
                 </div>
             </div>
@@ -54,7 +55,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Historial de Compras</h5>
                         <p class="card-text">Revisa tus compras anteriores.</p>
-                        <a href="@Url.Action("Index", "HistorialCompras")" class="btn btn-success">Ir al módulo</a>
+                        <a href="@Url.Action("Index_1", "Facturas", new { id = Session["UsuarioId"] })" class="btn btn-success">Ir al módulo</a>
                     </div>
                 </div>
             </div>

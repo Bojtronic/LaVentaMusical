@@ -1,0 +1,56 @@
+﻿@model IEnumerable<LaVentaMusical.Models.Canciones>
+
+@{
+    ViewBag.Title = "Index_1";
+}
+
+<h2>Venta de Canciones</h2>
+
+<div class="text-center mb-4">
+    <a href="@Url.Action("Index", "HomeUsuario")" class="btn btn-link">Usuario Home page</a>
+</div>
+
+<div>
+    <h3>Canciones Disponibles</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Artista</th>
+                <th>Álbum</th>
+                <th>Precio</th>
+                <th>Disponibilidad</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cancion in Model)
+            {
+                <tr>
+                    <td>@cancion.Nombre_Cancion</td>
+                    <!-- Mostrar el nombre del artista -->
+                    <td>@(cancion.Albumes?.Artistas?.Nombre_Artistico ?? "Desconocido")</td>
+                    <!-- Mostrar el nombre del álbum -->
+                    <td>@(cancion.Albumes?.Nombre_Album ?? "Desconocido")</td>
+                    <!-- Formatear el precio -->
+                    <td>@(cancion.Precio.HasValue ? cancion.Precio.Value.ToString("C") : "No Disponible")</td>
+                    <td>@cancion.Canciones_Disponibles</td>
+                    <td>
+                        @if (cancion.Canciones_Disponibles > 0)
+                        {
+                            @Html.ActionLink("Agregar al Carrito", "AgregarAlCarrito_1", new { id = cancion.Id_Cancion }, new { @class = "btn btn-primary" })
+                        }
+                        else
+                        {
+                            <span class="text-danger">Agotado</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="@Url.Action("Carrito_1")" class="btn btn-success">Ir al Carrito</a>
+</div>

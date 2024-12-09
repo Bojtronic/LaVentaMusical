@@ -11,7 +11,8 @@ namespace LaVentaMusical.Controllers
         // GET: HomeUsuario
         public ActionResult Index()
         {
-            return View();
+            var usuarioId = TempData["Id_Usuario"];
+            return View(usuarioId);
         }
     }
 }

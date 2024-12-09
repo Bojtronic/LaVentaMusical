@@ -35,6 +35,8 @@ namespace LaVentaMusical.Controllers
                     else
                     {
                         // redirigir a la página Home del usuario normal
+                        //TempData["Id_Usuario"] = usuario.Id_Usuario;
+                        Session["UsuarioId"] = usuario.Id_Usuario;
                         return RedirectToAction("Index", "HomeUsuario");
                     }
                     
