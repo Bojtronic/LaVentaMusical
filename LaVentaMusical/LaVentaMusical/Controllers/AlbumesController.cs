@@ -77,13 +77,17 @@ namespace LaVentaMusical.Controllers
         }
 
         // GET: Albumes/Edit/5
+        // GET: Albumes/Edit/5
         public ActionResult Edit(int id)
         {
             using (LaVentaMusicalEntities context = new LaVentaMusicalEntities())
             {
                 var album = context.Albumes.Find(id);
                 if (album == null) return HttpNotFound();
-                ViewBag.Id_Artista = new SelectList(context.Artistas, "Id_Artista", "Nombre_Artistico", album.Id_Artista);
+
+                // Cargar la lista de artistas y asignarla a ViewBag.Artistas
+                ViewBag.Artistas = new SelectList(context.Artistas.ToList(), "Id_Artista", "Nombre_Artistico", album.Id_Artista);
+
                 return View(album);
             }
         }
@@ -111,7 +115,7 @@ namespace LaVentaMusical.Controllers
                         if (!allowedExtensions.Contains(fileExtension))
                         {
                             ModelState.AddModelError("Imagen_Album", "Solo se permiten archivos de imagen (.jpg, .jpeg, .png, .gif).");
-                            ViewBag.Id_Artista = new SelectList(context.Artistas, "Id_Artista", "Nombre_Artistico", album.Id_Artista);
+                            ViewBag.Artistas = new SelectList(context.Artistas.ToList(), "Id_Artista", "Nombre_Artistico", album.Id_Artista);
                             return View(album);
                         }
 
@@ -129,10 +133,18 @@ namespace LaVentaMusical.Controllers
             }
             catch (Exception ex)
             {
+                // Recargar los artistas en caso de error
+                using (var context = new LaVentaMusicalEntities())
+                {
+                    ViewBag.Artistas = new SelectList(context.Artistas.ToList(), "Id_Artista", "Nombre_Artistico", album.Id_Artista);
+                }
+
                 ModelState.AddModelError("", "Ocurrió un error al actualizar el álbum: " + ex.Message);
                 return View(album);
             }
         }
+
+
 
         // GET: Albumes/Details/5
         public ActionResult Details(int id)

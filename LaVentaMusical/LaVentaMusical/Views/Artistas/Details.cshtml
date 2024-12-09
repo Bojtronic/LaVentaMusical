@@ -1,0 +1,47 @@
+﻿@model LaVentaMusical.Models.Artistas
+
+<h2>Detalles del Artista</h2>
+
+<div class="form-group">
+    <label>Código de Artista</label>
+    <p class="form-control-static">@Model.Id_Artista</p>
+</div>
+
+<div class="form-group">
+    <label>Nombre Artístico</label>
+    <p class="form-control-static">@Model.Nombre_Artistico</p>
+</div>
+
+<div class="form-group">
+    <label>Fecha de Nacimiento</label>
+    <p class="form-control-static">@Model.Fecha_Nacimiento.ToString()</p>
+</div>
+
+<div class="form-group">
+    <label>Nombre Real</label>
+    <p class="form-control-static">@Model.Nombre_Real</p>
+</div>
+
+<div class="form-group">
+    <label>Nacionalidad</label>
+    <p class="form-control-static">@Model.Nacionalidad</p>
+</div>
+
+<div class="form-group">
+    <label>Imagen</label>
+    <div>
+        @if (Model.Imagen_Artista != null)
+        {
+            <img src="@Url.Action("ObtenerImagen", "Artistas", new { id = Model.Id_Artista })" alt="Imagen del Artista" class="img-thumbnail" style="max-width: 200px;" />
+        }
+        else
+        {
+            <p>No hay imagen disponible</p>
+        }
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id_Artista }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-secondary" })
+</div>

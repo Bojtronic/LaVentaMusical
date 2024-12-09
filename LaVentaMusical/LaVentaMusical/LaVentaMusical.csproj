@@ -385,6 +385,10 @@
     <Content Include="Views\VentaCanciones\Carrito_1.cshtml" />
     <Content Include="Views\VentaCanciones\Factura.cshtml" />
     <Content Include="Views\Facturas\Index_1.cshtml" />
+    <Content Include="Views\Artistas\Details.cshtml" />
+    <Content Include="Views\Albumes\Details.cshtml" />
+    <Content Include="Views\Canciones\Delete.cshtml" />
+    <Content Include="Views\Canciones\DeleteConfirmed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

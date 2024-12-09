@@ -1,0 +1,16 @@
+﻿@model LaVentaMusical.Models.Canciones
+
+@{
+    ViewBag.Title = "Eliminar Canción";
+}
+
+<h2>Eliminar Canción</h2>
+
+<h3>¿Estás seguro de que deseas eliminar la canción "@Model.Nombre_Cancion"?</h3>
+
+@using (Html.BeginForm("Delete", "Canciones", new { id = Model.Id_Cancion }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Confirmar Eliminación" class="btn btn-danger" />
+    <a href="@Url.Action("Index", "Canciones")" class="btn btn-secondary">Cancelar</a>
+}

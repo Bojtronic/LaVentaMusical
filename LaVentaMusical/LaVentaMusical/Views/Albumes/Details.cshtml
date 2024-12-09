@@ -1,0 +1,21 @@
+﻿@model LaVentaMusical.Models.Albumes
+
+
+<h2>Detalles del Álbum</h2>
+
+<div class="album-details">
+    <div class="album-image">
+        <img src="@Url.Action("ObtenerImagen", "Albumes", new { id = Model.Id_Album })" alt="@Model.Nombre_Album" style="max-width: 300px; max-height: 300px;" />
+    </div>
+
+    <div class="album-info">
+        <h3>@Model.Nombre_Album</h3>
+        <p><strong>Año de Lanzamiento:</strong> @Model.Ano_Lanzamiento</p>
+        <p><strong>Artista:</strong> @Model.Artistas?.Nombre_Artistico ?? "No especificado"</p>
+    </div>
+</div>
+
+<div>
+    <a href="@Url.Action("Edit", "Albumes", new { id = Model.Id_Album })" class="btn btn-primary">Editar</a>
+    <a href="@Url.Action("Index", "Albumes")" class="btn btn-secondary">Volver a la Lista</a>
+</div>

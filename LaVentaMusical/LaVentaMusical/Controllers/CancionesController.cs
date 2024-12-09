@@ -129,6 +129,54 @@ namespace LaVentaMusical.Controllers
             }
         }
 
+        // GET: Canciones/Delete/5
+        public ActionResult Delete(int id)
+        {
+            using (var context = new LaVentaMusicalEntities())
+            {
+                var cancion = context.Canciones
+                                     .Include(c => c.Albumes)
+                                     .Include(c => c.Albumes.Artistas)
+                                     .Include(c => c.Generos)
+                                     .FirstOrDefault(c => c.Id_Cancion == id);
+
+                if (cancion == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(cancion);
+            }
+        }
+
+        // POST: Canciones/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            try
+            {
+                using (var context = new LaVentaMusicalEntities())
+                {
+                    var cancion = context.Canciones.Find(id);
+                    if (cancion == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    context.Canciones.Remove(cancion);
+                    context.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al eliminar la canción: " + ex.Message);
+                return View();
+            }
+        }
+
 
         private void PrepararSelectLists(int? idGeneroSeleccionado = null, int? idAlbumSeleccionado = null)
         {
